@@ -3,27 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Эвакуатор 24/7 | Быстрая помощь на дороге</title>
+    <title>Эвакуатор Астана 24/7 | Быстрая помощь</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- ОСНОВНЫЕ НАСТРОЙКИ --- */
+        /* --- НАСТРОЙКИ --- */
         :root {
             --dark-bg: #121212;
             --dark-card: #1e1e1e;
-            --accent: #FFC107; /* Яркий желтый/оранжевый */
-            --accent-hover: #ffca2c;
+            --accent: #FFC107; 
             --text-main: #ffffff;
-            --text-secondary: #b0b0b0;
+            --text-secondary: #cccccc;
             --green-wa: #25D366;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Montserrat', sans-serif;
@@ -64,16 +59,18 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 15px 30px;
+            padding: 16px 32px;
             font-weight: 900;
             text-transform: uppercase;
             border-radius: 50px;
             font-size: 1rem;
             transition: transform 0.2s;
             cursor: pointer;
-            margin: 5px;
+            margin: 8px 0;
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
+            text-align: center;
+            border: none;
         }
 
         .btn:active { transform: scale(0.95); }
@@ -81,174 +78,233 @@
         .btn-primary {
             background-color: var(--accent);
             color: #000;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
             animation: pulse 2s infinite;
         }
 
         .btn-whatsapp {
             background-color: var(--green-wa);
             color: #fff;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
 
         .section-title {
             text-align: center;
             font-size: 2rem;
             font-weight: 900;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        /* --- ГЛАВНЫЙ ЭКРАН (HERO) --- */
+        /* --- ГЛАВНЫЙ ЭКРАН --- */
         .hero {
             height: 100vh;
-            min-height: 600px;
+            min-height: 650px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1626848262791-7d12d4b99836?q=80&w=1000&auto=format&fit=crop') no-repeat center/cover;
+            /* ФОНОВОЕ ИЗОБРАЖЕНИЕ: Темная дорога/Эвакуатор */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(18,18,18,1)), 
+                        url('https://images.unsplash.com/photo-1615828800958-38706d81230e?q=80&w=1920&auto=format&fit=crop') no-repeat center/cover;
             position: relative;
+            padding-top: 60px;
         }
 
         .hero-content {
             z-index: 2;
             animation: fadeInUp 1s ease-out;
+            width: 100%;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 15px;
             text-transform: uppercase;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            margin-bottom: 35px;
+            font-weight: 500;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
         }
 
         .hero-contact {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-top: 20px;
+            margin-top: 25px;
             display: block;
+            color: var(--accent);
         }
 
-        /* Анимация машины */
         .tow-truck-anim {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--accent);
             margin-bottom: 20px;
             display: block;
             animation: driveIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
         }
 
         /* --- ПРЕИМУЩЕСТВА --- */
-        .features { padding: 60px 0; background: var(--dark-bg); }
+        .features { padding: 40px 0 80px; background: var(--dark-bg); }
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
         }
         .feature-card {
-            background: var(--dark-card);
-            padding: 20px;
-            border-radius: 15px;
+            background: #1a1a1a;
+            padding: 25px 15px;
+            border-radius: 12px;
             text-align: center;
             border: 1px solid #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         .feature-card i {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--accent);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
+        .feature-card h4 { margin-bottom: 5px; font-size: 1.1rem; }
+        .feature-card p { font-size: 0.9rem; color: #888; }
 
         /* --- УСЛУГИ --- */
-        .services { padding: 60px 0; background: #161616; }
+        .services { padding: 80px 0; background: #161616; }
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
         .service-card {
-            background: var(--dark-card);
-            padding: 30px;
+            background: #222;
+            padding: 35px;
             border-radius: 15px;
             text-align: left;
-            border-bottom: 3px solid var(--accent);
+            border-bottom: 4px solid var(--accent);
             transition: 0.3s;
         }
-        .service-card:hover { transform: translateY(-5px); background: #252525; }
-        .service-card h3 { margin: 15px 0 10px; font-size: 1.3rem; }
-        .service-card i { font-size: 2rem; color: var(--accent); }
+        .service-card:hover { transform: translateY(-5px); background: #2a2a2a; }
+        .service-card h3 { margin: 15px 0 10px; font-size: 1.4rem; font-weight: 700; }
+        .service-card i { font-size: 2.5rem; color: var(--accent); }
+        .service-card p { color: #bbb; }
 
-        /* --- КАК МЫ РАБОТАЕМ --- */
-        .steps { padding: 60px 0; }
+        /* --- ГАЛЕРЕЯ (ФОТО СНИЗУ) --- */
+        .gallery { padding: 80px 0; background: var(--dark-bg); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        
+        /* Затемнение на фото */
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+        }
+        .gallery-overlay span {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* --- КАК ВЫЗВАТЬ --- */
+        .steps { padding: 80px 0; background: #161616; }
         .step-item {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
-            background: var(--dark-card);
-            padding: 15px;
-            border-radius: 10px;
+            background: #222;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid var(--accent);
         }
         .step-num {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 900;
             color: var(--accent);
-            margin-right: 15px;
-            min-width: 30px;
+            margin-right: 20px;
+            line-height: 1;
         }
 
-        /* --- КОНТАКТЫ И ФУТЕР --- */
+        /* --- КОНТАКТЫ --- */
         .contact-section {
-            padding: 60px 0 100px; /* Отступ снизу для фиксированных кнопок */
+            padding: 80px 0 120px;
             text-align: center;
             background: #000;
+            background-image: radial-gradient(circle at center, #1a1a1a 0%, #000 70%);
         }
         .big-phone {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 900;
             color: var(--accent);
             display: block;
-            margin: 20px 0;
+            margin: 25px 0;
+            text-decoration: underline;
         }
 
-        /* --- ПЛАВАЮЩИЕ КНОПКИ (FIXED) --- */
+        /* --- FIXED BUTTONS --- */
         .fixed-buttons {
             position: fixed;
-            bottom: 20px;
-            left: 0;
-            right: 0;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            justify-content: center;
+            width: 95%;
+            max-width: 500px;
             gap: 10px;
-            padding: 0 20px;
             z-index: 1000;
+            background: rgba(18,18,18,0.9); /* Подложка чтобы не сливалось */
+            padding: 10px;
+            border-radius: 60px;
+            backdrop-filter: blur(5px);
+            border: 1px solid #333;
         }
         
         .fixed-btn {
             flex: 1;
-            padding: 12px;
+            padding: 14px;
             text-align: center;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            font-size: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            white-space: nowrap;
         }
         
         .fix-call { background: var(--accent); color: #000; }
         .fix-wa { background: var(--green-wa); color: #fff; }
 
-        /* Адаптив под очень маленькие экраны */
-        @media (max-width: 350px) {
-            .hero h1 { font-size: 2rem; }
-            .btn { font-size: 0.9rem; padding: 12px 20px; }
+        /* АДАПТИВНОСТЬ */
+        @media (max-width: 400px) {
+            .hero h1 { font-size: 2.2rem; }
+            .btn { width: 100%; }
+            .fixed-btn { font-size: 0.9rem; padding: 12px; }
         }
     </style>
 </head>
@@ -257,12 +313,12 @@
     <header class="hero">
         <div class="container hero-content">
             <i class="fas fa-truck-pickup tow-truck-anim"></i>
-            <h1>Эвакуатор 24/7<br><span style="color:var(--accent)">Приедем Быстро</span></h1>
-            <p>Срочная помощь на дороге • Любая сложность</p>
+            <h1>ЭВАКУАТОР<br><span style="color:var(--accent)">АСТАНА 24/7</span></h1>
+            <p>Срочный выезд в любой район • Надежно</p>
             
-            <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
                 <a href="tel:+77788464162" class="btn btn-primary">
-                    <i class="fas fa-phone-alt" style="margin-right: 10px;"></i> Позвонить
+                    <i class="fas fa-phone-alt" style="margin-right: 10px;"></i> Вызвать сейчас
                 </a>
                 <a href="https://wa.me/77788464162?text=Здравствуйте,%20нужен%20эвакуатор!" class="btn btn-whatsapp">
                     <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> Написать в WhatsApp
@@ -277,24 +333,23 @@
         <div class="container">
             <div class="features-grid">
                 <div class="feature-card">
-                    <i class="fas fa-stopwatch"></i>
-                    <h4>Срочный выезд</h4>
-                    <p>Подача от 15 мин</p>
+                    <i class="fas fa-bolt"></i>
+                    <h4>Быстрая подача</h4>
+                    <p>Приедем за 15-20 минут</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-clock"></i>
-                    <h4>24/7</h4>
-                    <p>Работаем круглосуточно</p>
+                    <i class="fas fa-moon"></i>
+                    <h4>Круглосуточно</h4>
+                    <p>Работаем ночью и в праздники</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-tag"></i>
-                    <h4>Честные цены</h4>
-                    <p>Без скрытых доплат</p>
+                    <i class="fas fa-tenge-sign"></i> <h4>Выгодная цена</h4>
+                    <p>Договоримся на берегу</p>
                 </div>
                 <div class="feature-card">
-                    <i class="fas fa-user-shield"></i>
-                    <h4>Опытный водитель</h4>
-                    <p>Бережная погрузка</p>
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Аккуратно</h4>
+                    <p>100% гарантия безопасности</p>
                 </div>
             </div>
         </div>
@@ -302,27 +357,53 @@
 
     <section class="services">
         <div class="container">
-            <h2 class="section-title">Наши Услуги</h2>
+            <h2 class="section-title">Наши услуги</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-car"></i>
-                    <h3>Легковые авто</h3>
-                    <p>Эвакуация седанов, хэтчбеков в любом состоянии.</p>
+                    <i class="fas fa-car-side"></i>
+                    <h3>Эвакуация авто</h3>
+                    <p>Перевозка легковых автомобилей с любой неисправностью.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-truck-monster"></i>
+                    <i class="fas fa-truck-pickup"></i>
                     <h3>Внедорожники</h3>
-                    <p>Мощная техника для тяжелых автомобилей.</p>
+                    <p>Справимся с тяжелой техникой и джипами.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-motorcycle"></i>
-                    <h3>Мототехника</h3>
-                    <p>Специальные крепления для перевозки мотоциклов.</p>
+                    <i class="fas fa-tools"></i>
+                    <h3>Техпомощь</h3>
+                    <p>Прикурить, подвезти бензин, замена колеса.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-car-crash"></i>
-                    <h3>Помощь при ДТП</h3>
-                    <p>Вытащим из кювета, перевернем, погрузим.</p>
+                    <i class="fas fa-route"></i>
+                    <h3>Межгород</h3>
+                    <p>Перевозка авто по Казахстану. Надежно.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">Наши работы</h2>
+            <p style="text-align: center; color: #aaa; margin-bottom: 30px;">Ежедневно помогаем десяткам водителей</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1625997233653-535d461df391?q=80&w=800&auto=format&fit=crop" alt="Эвакуатор работа">
+                    <div class="gallery-overlay"><span>Погрузка авто</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596723223126-1d3737a6b72d?q=80&w=800&auto=format&fit=crop" alt="Перевозка">
+                    <div class="gallery-overlay"><span>Бережная перевозка</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=800&auto=format&fit=crop" alt="Эвакуация ночью">
+                    <div class="gallery-overlay"><span>Работаем ночью</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1605218427306-633ba8546381?q=80&w=800&auto=format&fit=crop" alt="ДТП помощь">
+                    <div class="gallery-overlay"><span>Сложные случаи</span></div>
                 </div>
             </div>
         </div>
@@ -330,26 +411,26 @@
 
     <section class="steps">
         <div class="container">
-            <h2 class="section-title">Как вызвать?</h2>
+            <h2 class="section-title">Как мы работаем</h2>
             <div class="step-item">
-                <span class="step-num">1</span>
+                <span class="step-num">01</span>
                 <div>
-                    <h4>Звонок / Заявка</h4>
-                    <p>Позвоните или напишите в WhatsApp</p>
+                    <h4>Звонок нам</h4>
+                    <p style="color:#aaa">Сообщите, где вы находитесь</p>
                 </div>
             </div>
             <div class="step-item">
-                <span class="step-num">2</span>
+                <span class="step-num">02</span>
                 <div>
-                    <h4>Локация</h4>
-                    <p>Сообщите, где вы находитесь и что с машиной</p>
+                    <h4>Выезд водителя</h4>
+                    <p style="color:#aaa">Мы уже в пути к вам</p>
                 </div>
             </div>
             <div class="step-item">
-                <span class="step-num">3</span>
+                <span class="step-num">03</span>
                 <div>
-                    <h4>Помощь уже в пути</h4>
-                    <p>Эвакуатор выезжает немедленно</p>
+                    <h4>Помощь</h4>
+                    <p style="color:#aaa">Погрузка и доставка до места</p>
                 </div>
             </div>
         </div>
@@ -357,14 +438,12 @@
 
     <section class="contact-section">
         <div class="container">
-            <h2>Нужна помощь? Звоните!</h2>
-            <p>Ответим сразу, приедем быстро</p>
+            <h2 style="color: #fff; margin-bottom: 10px;">Попали в беду?</h2>
+            <p style="color: #aaa;">Звоните в любое время суток</p>
             <a href="tel:+77788464162" class="big-phone">+7 778 846 41 62</a>
-            <p style="color: #666;">Адилет</p>
-            <br>
-            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-                <a href="tel:+77788464162" class="btn btn-primary" style="width: auto;">Позвонить</a>
-            </div>
+            <div style="font-size: 1.2rem; font-weight: 700; color: #fff;">Адилет</div>
+            <br><br>
+            <p style="color: #444; font-size: 0.8rem;">Эвакуатор Астана © 2024</p>
         </div>
     </section>
 
@@ -379,3 +458,4 @@
 
 </body>
 </html>
+
