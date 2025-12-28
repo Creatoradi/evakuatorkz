@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эвакуатор 24/7 | Быстрая помощь на дороге</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- ОСНОВНЫЕ НАСТРОЙКИ --- */
+        :root {
+            --dark-bg: #121212;
+            --dark-card: #1e1e1e;
+            --accent: #FFC107; /* Яркий желтый/оранжевый */
+            --accent-hover: #ffca2c;
+            --text-main: #ffffff;
+            --text-secondary: #b0b0b0;
+            --green-wa: #25D366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- АНИМАЦИИ --- */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 193, 7, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+        }
+
+        @keyframes driveIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* --- КОМПОНЕНТЫ --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: transform 0.2s;
+            cursor: pointer;
+            margin: 5px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .btn:active { transform: scale(0.95); }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #000;
+            animation: pulse 2s infinite;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--green-wa);
+            color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            color: var(--accent);
+        }
+
+        /* --- ГЛАВНЫЙ ЭКРАН (HERO) --- */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1626848262791-7d12d4b99836?q=80&w=1000&auto=format&fit=crop') no-repeat center/cover;
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .hero-contact {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 20px;
+            display: block;
+        }
+
+        /* Анимация машины */
+        .tow-truck-anim {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: block;
+            animation: driveIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* --- ПРЕИМУЩЕСТВА --- */
+        .features { padding: 60px 0; background: var(--dark-bg); }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            background: var(--dark-card);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        /* --- УСЛУГИ --- */
+        .services { padding: 60px 0; background: #161616; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--dark-card);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            border-bottom: 3px solid var(--accent);
+            transition: 0.3s;
+        }
+        .service-card:hover { transform: translateY(-5px); background: #252525; }
+        .service-card h3 { margin: 15px 0 10px; font-size: 1.3rem; }
+        .service-card i { font-size: 2rem; color: var(--accent); }
+
+        /* --- КАК МЫ РАБОТАЕМ --- */
+        .steps { padding: 60px 0; }
+        .step-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background: var(--dark-card);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .step-num {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        /* --- КОНТАКТЫ И ФУТЕР --- */
+        .contact-section {
+            padding: 60px 0 100px; /* Отступ снизу для фиксированных кнопок */
+            text-align: center;
+            background: #000;
+        }
+        .big-phone {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+            margin: 20px 0;
+        }
+
+        /* --- ПЛАВАЮЩИЕ КНОПКИ (FIXED) --- */
+        .fixed-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+        
+        .fixed-btn {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .fix-call { background: var(--accent); color: #000; }
+        .fix-wa { background: var(--green-wa); color: #fff; }
+
+        /* Адаптив под очень маленькие экраны */
+        @media (max-width: 350px) {
+            .hero h1 { font-size: 2rem; }
+            .btn { font-size: 0.9rem; padding: 12px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <i class="fas fa-truck-pickup tow-truck-anim"></i>
+            <h1>Эвакуатор 24/7<br><span style="color:var(--accent)">Приедем Быстро</span></h1>
+            <p>Срочная помощь на дороге • Любая сложность</p>
+            
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <a href="tel:+77788464162" class="btn btn-primary">
+                    <i class="fas fa-phone-alt" style="margin-right: 10px;"></i> Позвонить
+                </a>
+                <a href="https://wa.me/77788464162?text=Здравствуйте,%20нужен%20эвакуатор!" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> Написать в WhatsApp
+                </a>
+            </div>
+
+            <a href="tel:+77788464162" class="hero-contact">+7 778 846 41 62 — Адилет</a>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-stopwatch"></i>
+                    <h4>Срочный выезд</h4>
+                    <p>Подача от 15 мин</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>24/7</h4>
+                    <p>Работаем круглосуточно</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-tag"></i>
+                    <h4>Честные цены</h4>
+                    <p>Без скрытых доплат</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h4>Опытный водитель</h4>
+                    <p>Бережная погрузка</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Наши Услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Легковые авто</h3>
+                    <p>Эвакуация седанов, хэтчбеков в любом состоянии.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-truck-monster"></i>
+                    <h3>Внедорожники</h3>
+                    <p>Мощная техника для тяжелых автомобилей.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-motorcycle"></i>
+                    <h3>Мототехника</h3>
+                    <p>Специальные крепления для перевозки мотоциклов.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-car-crash"></i>
+                    <h3>Помощь при ДТП</h3>
+                    <p>Вытащим из кювета, перевернем, погрузим.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="steps">
+        <div class="container">
+            <h2 class="section-title">Как вызвать?</h2>
+            <div class="step-item">
+                <span class="step-num">1</span>
+                <div>
+                    <h4>Звонок / Заявка</h4>
+                    <p>Позвоните или напишите в WhatsApp</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <span class="step-num">2</span>
+                <div>
+                    <h4>Локация</h4>
+                    <p>Сообщите, где вы находитесь и что с машиной</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <span class="step-num">3</span>
+                <div>
+                    <h4>Помощь уже в пути</h4>
+                    <p>Эвакуатор выезжает немедленно</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2>Нужна помощь? Звоните!</h2>
+            <p>Ответим сразу, приедем быстро</p>
+            <a href="tel:+77788464162" class="big-phone">+7 778 846 41 62</a>
+            <p style="color: #666;">Адилет</p>
+            <br>
+            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                <a href="tel:+77788464162" class="btn btn-primary" style="width: auto;">Позвонить</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="fixed-buttons">
+        <a href="tel:+77788464162" class="fixed-btn fix-call">
+            <i class="fas fa-phone-alt"></i> Позвонить
+        </a>
+        <a href="https://wa.me/77788464162?text=Здравствуйте,%20нужен%20эвакуатор!" class="fixed-btn fix-wa">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
+
+</body>
+</html>
